@@ -1,0 +1,136 @@
+                             /* Reset All Element Style */
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+                                /* Global Style */
+
+:root{
+    --re-position:relative;
+    --abs-position:absolute;
+}
+
+                              /* Body Style */
+
+body{
+    background-image: url('images/texture.png');
+    background-color: rgb(26, 25, 25);
+}
+
+                             /* Section Main Style  */
+
+.main{
+    width: 50%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 49% 49%;
+    grid-template-areas: "logo logo" "none-transition transition-img"
+        "liner-gradient-one liner-gradient-two" "filter-img-one filter-img-two";
+    gap: 2%;
+}
+
+                /* Div Main Style And Images  */
+
+.main-div-style{
+    height: 180px;
+    border: solid 3px #802080;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.main-div-style img {
+    width: 100%;
+    height: 100%;
+}
+
+                /* Main Logo Style */
+
+.main .main-logo{
+    height: 110px;
+    grid-area: logo;
+    text-align: center;
+}
+
+.main .main-logo img{
+    width: 50%;
+}
+
+                /* None Transition & Transition Style*/
+
+.main .none-transition{
+    grid-area: none-transition;
+    position: var(--re-position);
+}
+
+.main .transition{
+    grid-area: transition-img;
+    position: var(--re-position);
+}
+
+.main .none-transition::before ,
+.main .transition::before{
+    content: "";
+    position: var(--abs-position);
+    background-color: rgba(0, 0, 0, 0.341);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+}
+
+.main .transition::before{
+    transition: all 0.5s ease-in-out;
+}
+
+.main .none-transition:hover::before ,
+.main .transition:hover::before{
+    opacity: 1;
+}
+
+                /* Liner Gradient One & Liner Gradient Two Style */
+
+.main .liner-gradient-one{
+    grid-area: liner-gradient-one;
+    position: var(--re-position);
+    background-image: linear-gradient(135deg,black,#661966 60%);
+}
+
+.main .liner-gradient-two{
+    grid-area: liner-gradient-two;
+    position: var(--re-position);
+    background-image: linear-gradient(45deg,black 10%,#661966 80%);
+}
+
+.main .liner-gradient-one::before ,
+.main .liner-gradient-two::before{
+    content: "Ramadan Kareem 🌙";
+    position: var(--abs-position);
+    font-size: 20px;
+    color: white;
+    top: calc(50% - 20px);
+    left: 25%;
+    font-family: "Rubik", sans-serif;
+    font-weight: 600;
+}
+
+            /* Filter One & Filter Two */
+
+.main .filter-one{
+    grid-area: filter-img-one;
+    filter: blur(1px);
+    transition: all 0.5s  ease-in-out;
+}
+
+.main .filter-one:hover{
+    filter: blur(0px);
+}
+
+.main .filter-two{
+    grid-area: filter-img-two;
+    transition: all 0.5s  ease-in-out;
+}
+
+.main .filter-two:hover{
+    filter: grayscale(100%);
+}
