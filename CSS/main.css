@@ -15,7 +15,7 @@
                               /* Body Style */
 
 body{
-    background-image: url('images/texture.png');
+    background-image: url('../images/texture.png');
     background-color: rgb(26, 25, 25);
 }
 
